@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VerdaWorld — Build Green. Think Big. Save the Planet.</title>
+  <meta name="description" content="VerdaWorld is an eco-city builder game where you balance growth and sustainability. Build green energy, manage resources, and keep your city thriving." />
+  <meta property="og:title" content="VerdaWorld — Eco City Builder" />
+  <meta property="og:description" content="Build green. Think big. Save the planet. An eco-city builder game for iOS and Android." />
+  <meta property="og:image" content="hero.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #030D09;
+      color: #E0F2E9;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ─── Utility ─── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #00E5A0;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: rgba(224, 242, 233, 0.6);
+      max-width: 600px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #00E5A0, #00BCD4, #4CAF50);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── Floating Particles ─── */
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      font-size: 24px;
+      opacity: 0;
+      animation: floatUp 14s linear infinite;
+    }
+    .particle:nth-child(1) { left: 5%;  animation-delay: 0s;   }
+    .particle:nth-child(2) { left: 15%; animation-delay: 2s;   }
+    .particle:nth-child(3) { left: 30%; animation-delay: 4s;   }
+    .particle:nth-child(4) { left: 50%; animation-delay: 1s;   }
+    .particle:nth-child(5) { left: 65%; animation-delay: 6s;   }
+    .particle:nth-child(6) { left: 80%; animation-delay: 3s;   }
+    .particle:nth-child(7) { left: 92%; animation-delay: 5s;   }
+    .particle:nth-child(8) { left: 42%; animation-delay: 7.5s; }
+    .particle:nth-child(9) { left: 72%; animation-delay: 9s;   }
+    .particle:nth-child(10){ left: 22%; animation-delay: 10.5s;}
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      10%  { opacity: 0.25; }
+      80%  { opacity: 0.2; }
+      100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+    }
+
+    /* ─── Nav ─── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      background: rgba(3, 13, 9, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 229, 160, 0.08);
+      transition: background 0.3s;
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(224, 242, 233, 0.65);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #00E5A0; }
+    .nav-cta {
+      padding: 8px 20px !important;
+      background: linear-gradient(135deg, rgba(0,229,160,0.2), rgba(0,188,212,0.2)) !important;
+      border: 1px solid rgba(0,229,160,0.4) !important;
+      border-radius: 10px !important;
+      color: #00E5A0 !important;
+      transition: all 0.25s !important;
+    }
+    .nav-cta:hover {
+      background: linear-gradient(135deg, rgba(0,229,160,0.35), rgba(0,188,212,0.35)) !important;
+      box-shadow: 0 0 20px rgba(0,229,160,0.15) !important;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(0,229,160,0.06) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 20%, rgba(0,188,212,0.04) 0%, transparent 50%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 720px; }
+    .hero-emoji {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: bounce 2.5s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: 6px;
+      line-height: 1.05;
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(0,229,160,0.2), 0 0 80px rgba(0,188,212,0.1);
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(224, 242, 233, 0.6);
+      font-style: italic;
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00E5A0, #00BCD4);
+      color: #030D09;
+      box-shadow: 0 4px 24px rgba(0, 229, 160, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 229, 160, 0.35);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: #E0F2E9;
+      border: 1px solid rgba(0, 229, 160, 0.25);
+      backdrop-filter: blur(12px);
+    }
+    .btn-secondary:hover {
+      background: rgba(0, 229, 160, 0.1);
+      border-color: rgba(0, 229, 160, 0.5);
+      transform: translateY(-2px);
+    }
+    .btn-icon { font-size: 1.2em; }
+
+    /* ─── Hero Image ─── */
+    .hero-image-wrapper {
+      position: relative;
+      margin: 80px auto 0;
+      max-width: 900px;
+      z-index: 2;
+    }
+    .hero-image-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(0,229,160,0.3), rgba(0,188,212,0.15), rgba(76,175,80,0.3));
+      z-index: -1;
+    }
+    .hero-image-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,229,160,0.08);
+      z-index: -1;
+    }
+    .hero-image {
+      border-radius: 20px;
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+    }
+
+    /* ─── Features ─── */
+    .features {
+      position: relative;
+      padding: 120px 0;
+      z-index: 1;
+    }
+    .features-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .features-header .section-subtitle { margin: 0 auto; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      position: relative;
+      padding: 32px 28px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(10,46,26,0.6), rgba(5,21,16,0.8));
+      border: 1px solid rgba(0,229,160,0.1);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, rgba(0,229,160,0.05), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .feature-card:hover {
+      border-color: rgba(0,229,160,0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 20px rgba(0,229,160,0.05);
+    }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-emoji {
+      font-size: 36px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .feature-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .feature-desc {
+      font-size: 0.9rem;
+      color: rgba(224,242,233,0.55);
+      line-height: 1.6;
+    }
+
+    /* ─── How It Works ─── */
+    .how-it-works {
+      position: relative;
+      padding: 100px 0 120px;
+      z-index: 1;
+      background: linear-gradient(180deg, transparent, rgba(0,229,160,0.02) 50%, transparent);
+    }
+    .how-header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .how-header .section-subtitle { margin: 0 auto; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 50px;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(0,229,160,0.2), rgba(0,188,212,0.2), transparent);
+    }
+    .step {
+      text-align: center;
+      position: relative;
+    }
+    .step-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+      background: linear-gradient(135deg, rgba(0,229,160,0.2), rgba(0,188,212,0.15));
+      border: 2px solid rgba(0,229,160,0.3);
+      color: #00E5A0;
+      box-shadow: 0 0 24px rgba(0,229,160,0.1);
+    }
+    .step-emoji {
+      font-size: 40px;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .step-desc {
+      font-size: 0.9rem;
+      color: rgba(224,242,233,0.5);
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ─── CTA ─── */
+    .cta {
+      position: relative;
+      padding: 100px 0;
+      text-align: center;
+      z-index: 1;
+    }
+    .cta-box {
+      padding: 64px 40px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(10,46,26,0.7), rgba(5,21,16,0.9));
+      border: 1px solid rgba(0,229,160,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,229,160,0.03) 0%, transparent 50%);
+      animation: rotateBg 20s linear infinite;
+    }
+    @keyframes rotateBg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .cta-content { position: relative; z-index: 2; }
+    .cta-emoji { font-size: 56px; margin-bottom: 20px; }
+    .cta .section-title { margin-bottom: 12px; }
+    .cta .section-subtitle { margin: 0 auto 36px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; align-items: center; }
+    .store-badge {
+      display: inline-block;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .store-badge:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.15);
+    }
+    .store-badge img {
+      height: 54px;
+      width: auto;
+    }
+    .store-badge-google img {
+      height: 80px;
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      padding: 40px 0;
+      border-top: 1px solid rgba(0,229,160,0.08);
+    }
+    .footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy {
+      font-size: 0.85rem;
+      color: rgba(224,242,233,0.35);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: rgba(224,242,233,0.4);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #00E5A0; }
+
+    /* ─── Reveal Animation ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .steps::before { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-image-wrapper { margin-top: 48px; }
+      .cta-box { padding: 48px 24px; }
+    }
+    @media (max-width: 480px) {
+      .hero-title { letter-spacing: 3px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles -->
+  <div class="particles" aria-hidden="true">
+    <span class="particle">🌳</span>
+    <span class="particle">⚡</span>
+    <span class="particle">🏠</span>
+    <span class="particle">💧</span>
+    <span class="particle">🌍</span>
+    <span class="particle">🏭</span>
+    <span class="particle">☀️</span>
+    <span class="particle">🌱</span>
+    <span class="particle">🏗️</span>
+    <span class="particle">🌿</span>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-logo"><span class="gradient-text">VERDAWORLD</span></div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#download" class="nav-cta">Download</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-emoji" aria-hidden="true">🌍🌱⚡</div>
+      <h1 class="hero-title gradient-text">VERDAWORLD</h1>
+      <p class="hero-tagline">Build green. Think big. Save the planet.</p>
+      <div class="hero-buttons">
+        <a href="#download" class="btn btn-primary">
+          <span class="btn-icon">🚀</span> Download Free
+        </a>
+        <a href="#features" class="btn btn-secondary">
+          <span class="btn-icon">✨</span> Explore Features
+        </a>
+      </div>
+      <div class="hero-image-wrapper reveal">
+        <img src="hero.png" alt="VerdaWorld eco-city builder game showing a futuristic green city" class="hero-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features-header reveal">
+        <p class="section-label">Why You'll Love It</p>
+        <h2 class="section-title">Build Your <span class="gradient-text">Dream Eco-City</span></h2>
+        <p class="section-subtitle">Balance growth and sustainability in a richly simulated world where every decision shapes your city's future.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">⚡</span>
+          <h3 class="feature-title">Resource Management</h3>
+          <p class="feature-desc">Manage power, water, and materials. Every resource matters — run out and your city suffers the consequences.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">🏗️</span>
+          <h3 class="feature-title">Eco Building</h3>
+          <p class="feature-desc">Place residential zones, factories, parks, solar farms, and water plants. Design your perfect balanced metropolis.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">🔬</span>
+          <h3 class="feature-title">Tech Tree</h3>
+          <p class="feature-desc">Research solar farms, advanced recycling, water purification, and more to supercharge your city's efficiency.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">📅</span>
+          <h3 class="feature-title">Daily Challenges</h3>
+          <p class="feature-desc">Complete fresh objectives every day. Reach population goals, reduce pollution, and earn bonus rewards.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">🔄</span>
+          <h3 class="feature-title">Prestige System</h3>
+          <p class="feature-desc">Reset your city to earn Eco Points and permanent bonuses. Each prestige makes you stronger than before.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">🏆</span>
+          <h3 class="feature-title">Global Leaderboard</h3>
+          <p class="feature-desc">Compete with players worldwide. Climb the ranks with your population, prestige level, and eco score.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="how-header reveal">
+        <p class="section-label">Getting Started</p>
+        <h2 class="section-title">Three Steps to a <span class="gradient-text">Greener World</span></h2>
+        <p class="section-subtitle">Jump right in — no tutorials needed. VerdaWorld is easy to learn, endlessly deep to master.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <span class="step-emoji" aria-hidden="true">🏠</span>
+          <h3 class="step-title">Build</h3>
+          <p class="step-desc">Place buildings on your grid — homes for citizens, factories for materials, solar farms for clean energy.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <span class="step-emoji" aria-hidden="true">📊</span>
+          <h3 class="step-title">Manage</h3>
+          <p class="step-desc">Keep pollution low and happiness high. Balance industrial output with parks and green energy.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <span class="step-emoji" aria-hidden="true">🚀</span>
+          <h3 class="step-title">Evolve</h3>
+          <p class="step-desc">Research technologies, prestige for permanent bonuses, and climb the global leaderboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="download">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div class="cta-content">
+          <div class="cta-emoji" aria-hidden="true">🌍</div>
+          <h2 class="section-title">Ready to Build a <span class="gradient-text">Greener Future</span>?</h2>
+          <p class="section-subtitle">Download VerdaWorld for free and start building your eco-city today.</p>
+          <div class="cta-buttons">
+            <a href="#" class="store-badge" aria-label="Download on the App Store">
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
+            </a>
+            <a href="#" class="store-badge store-badge-google" aria-label="Get it on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-copy">&copy; 2026 VerdaWorld. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Reveal on Scroll -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            // Stagger animation for sibling cards
+            const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+            const index = Array.from(siblings).indexOf(entry.target);
+            entry.target.style.transitionDelay = `${index * 0.08}s`;
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      reveals.forEach(el => observer.observe(el));
+
+      // Nav background on scroll
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => {
+        nav.style.background = window.scrollY > 60
+          ? 'rgba(3, 13, 9, 0.92)'
+          : 'rgba(3, 13, 9, 0.7)';
+      });
+    });
+  </script>
+</body>
+</html>
