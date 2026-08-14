@@ -7,9 +7,28 @@
   <meta name="description" content="VerdaWorld is an eco-city builder game where you balance growth and sustainability. Build green energy, manage resources, and keep your city thriving." />
   <meta property="og:title" content="VerdaWorld — Eco City Builder" />
   <meta property="og:description" content="Build green. Think big. Save the planet. An eco-city builder game for iOS and Android." />
-  <meta property="og:image" content="hero.png" />
+  <meta property="og:image" content="https://verdaworld.app/hero.png" />
+  <meta property="og:url" content="https://verdaworld.app/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://verdaworld.app/hero.png" />
+  <meta name="theme-color" content="#030D09" />
+  <link rel="canonical" href="https://verdaworld.app/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "VerdaWorld",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "GameApplication",
+    "description": "An eco-city builder game where you balance growth and sustainability. Build green energy, manage resources, and keep your city thriving.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "url": "https://verdaworld.app/",
+    "image": "https://verdaworld.app/hero.png",
+    "author": { "@type": "Organization", "name": "W3 Applications" }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -174,6 +193,34 @@
       letter-spacing: 1px;
       margin-bottom: 40px;
     }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px 8px 8px;
+      margin-bottom: 36px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(224, 242, 233, 0.85);
+      background: rgba(0, 229, 160, 0.07);
+      border: 1px solid rgba(0, 229, 160, 0.25);
+      transition: all 0.25s;
+    }
+    .hero-badge:hover {
+      background: rgba(0, 229, 160, 0.14);
+      border-color: rgba(0, 229, 160, 0.5);
+      box-shadow: 0 0 20px rgba(0, 229, 160, 0.12);
+    }
+    .hero-badge-pill {
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #00E5A0, #00BCD4);
+      color: #030D09;
+    }
     .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .btn {
       display: inline-flex;
@@ -295,6 +342,98 @@
       font-size: 0.9rem;
       color: rgba(224,242,233,0.55);
       line-height: 1.6;
+    }
+
+    /* ─── Eco Shop ─── */
+    .eco-shop {
+      position: relative;
+      padding: 100px 0 120px;
+      z-index: 1;
+      background: linear-gradient(180deg, transparent, rgba(0,188,212,0.025) 50%, transparent);
+    }
+    .eco-shop-header { text-align: center; margin-bottom: 56px; }
+    .eco-shop-header .section-subtitle { margin: 0 auto; }
+    .upgrade-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 64px;
+    }
+    .upgrade-chip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(10,46,26,0.5), rgba(5,21,16,0.7));
+      border: 1px solid rgba(0,229,160,0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .upgrade-chip:hover {
+      border-color: rgba(0,229,160,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+    .upgrade-chip-emoji { font-size: 26px; flex-shrink: 0; }
+    .upgrade-chip-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .upgrade-chip-desc {
+      font-size: 0.78rem;
+      color: rgba(224,242,233,0.5);
+      line-height: 1.4;
+    }
+    .premium-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .premium-card {
+      position: relative;
+      padding: 32px 28px;
+      border-radius: 18px;
+      text-align: center;
+      background: linear-gradient(145deg, rgba(10,46,26,0.6), rgba(5,21,16,0.8));
+      border: 1px solid rgba(0,229,160,0.12);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+    .premium-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .premium-card.featured {
+      border-color: rgba(255, 213, 79, 0.35);
+      background: linear-gradient(145deg, rgba(46,38,10,0.45), rgba(5,21,16,0.85));
+    }
+    .premium-card.featured:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 24px rgba(255,213,79,0.08); }
+    .premium-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(255, 213, 79, 0.15);
+      border: 1px solid rgba(255, 213, 79, 0.35);
+      color: #FFD54F;
+    }
+    .premium-emoji { font-size: 40px; margin-bottom: 14px; }
+    .premium-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .premium-desc { font-size: 0.88rem; color: rgba(224,242,233,0.55); line-height: 1.6; }
+    .eco-shop-note {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.82rem;
+      color: rgba(224,242,233,0.4);
     }
 
     /* ─── How It Works ─── */
@@ -466,6 +605,8 @@
     }
     @media (max-width: 480px) {
       .hero-title { letter-spacing: 3px; }
+      .hero-badge { font-size: 0.72rem; max-width: 92%; text-align: left; }
+      .upgrade-grid { grid-template-columns: 1fr 1fr; }
       .hero-buttons { flex-direction: column; align-items: center; }
       .cta-buttons { flex-direction: column; align-items: center; }
     }
@@ -492,6 +633,7 @@
       <div class="nav-logo"><span class="gradient-text">VERDAWORLD</span></div>
       <div class="nav-links">
         <a href="#features">Features</a>
+        <a href="#eco-shop">Eco Shop</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#download" class="nav-cta">Download</a>
       </div>
@@ -504,6 +646,11 @@
       <div class="hero-emoji" aria-hidden="true">🌍🌱⚡</div>
       <h1 class="hero-title gradient-text">VERDAWORLD</h1>
       <p class="hero-tagline">Build green. Think big. Save the planet.</p>
+      <a href="#eco-shop" class="hero-badge">
+        <span class="hero-badge-pill">NEW</span>
+        v1.1 — The Eco Shop update: 10 permanent upgrades, smart reminders &amp; more
+        <span aria-hidden="true">→</span>
+      </a>
       <div class="hero-buttons">
         <a href="#download" class="btn btn-primary">
           <span class="btn-icon">🚀</span> Download Free
@@ -555,9 +702,127 @@
         <div class="feature-card reveal">
           <span class="feature-emoji" aria-hidden="true">🏆</span>
           <h3 class="feature-title">Global Leaderboard</h3>
-          <p class="feature-desc">Compete with players worldwide. Climb the ranks with your population, prestige level, and eco score.</p>
+          <p class="feature-desc">Compete with players worldwide. Your score is submitted automatically when you prestige — climb the ranks with your population, prestige level, and eco score.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">🌿</span>
+          <h3 class="feature-title">Eco Shop</h3>
+          <p class="feature-desc">New! Spend your hard-earned Eco Points on 10 permanent upgrades that survive prestige, game over, and even New Game.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">💤</span>
+          <h3 class="feature-title">Offline Progress</h3>
+          <p class="feature-desc">Your city keeps producing while you're away. Extend your offline earnings cap with the Night Shift upgrade.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-emoji" aria-hidden="true">🔔</span>
+          <h3 class="feature-title">Smart Reminders</h3>
+          <p class="feature-desc">New! Optional notifications let you know when your offline earnings are full, your streak is at risk, or fresh daily challenges arrive.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Eco Shop -->
+  <section class="eco-shop" id="eco-shop">
+    <div class="container">
+      <div class="eco-shop-header reveal">
+        <p class="section-label">New in v1.1</p>
+        <h2 class="section-title">The <span class="gradient-text">Eco Shop</span> Has Opened</h2>
+        <p class="section-subtitle">Every prestige earns Eco Points — now you can spend them. Ten permanent upgrades that stay with you forever, no matter how many times your city rises and falls.</p>
+      </div>
+      <div class="upgrade-grid">
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">🚀</span>
+          <div>
+            <div class="upgrade-chip-name">Head Start</div>
+            <div class="upgrade-chip-desc">Begin every city with bonus materials</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">⚙️</span>
+          <div>
+            <div class="upgrade-chip-name">Green Engineering</div>
+            <div class="upgrade-chip-desc">Boost all production, level after level</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">🌬️</span>
+          <div>
+            <div class="upgrade-chip-name">Clean Air Act</div>
+            <div class="upgrade-chip-desc">Permanently cut pollution generation</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">🌙</span>
+          <div>
+            <div class="upgrade-chip-name">Night Shift</div>
+            <div class="upgrade-chip-desc">Raise your offline earnings cap</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">📦</span>
+          <div>
+            <div class="upgrade-chip-name">Deep Storage</div>
+            <div class="upgrade-chip-desc">Expand your resource caps</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">🎉</span>
+          <div>
+            <div class="upgrade-chip-name">Happy Citizens</div>
+            <div class="upgrade-chip-desc">Parks give +25% more happiness</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">🏛️</span>
+          <div>
+            <div class="upgrade-chip-name">Urban Legacy</div>
+            <div class="upgrade-chip-desc">Earn bigger prestige rewards</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">🛡️</span>
+          <div>
+            <div class="upgrade-chip-name">Crisis Insurance</div>
+            <div class="upgrade-chip-desc">Smog Crisis penalties halved</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">👷</span>
+          <div>
+            <div class="upgrade-chip-name">Efficient Builders</div>
+            <div class="upgrade-chip-desc">All building costs reduced by 10%</div>
+          </div>
+        </div>
+        <div class="upgrade-chip reveal">
+          <span class="upgrade-chip-emoji" aria-hidden="true">🧠</span>
+          <div>
+            <div class="upgrade-chip-name">Tech Memory</div>
+            <div class="upgrade-chip-desc">Keep unlocked techs through prestige</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="premium-grid">
+        <div class="premium-card reveal featured">
+          <span class="premium-tag">Best Value</span>
+          <div class="premium-emoji" aria-hidden="true">🌿</div>
+          <h3 class="premium-title">Green Pass</h3>
+          <p class="premium-desc">One purchase, permanent 2× production — forever, on every city, even while you're offline.</p>
+        </div>
+        <div class="premium-card reveal">
+          <div class="premium-emoji" aria-hidden="true">🎁</div>
+          <h3 class="premium-title">Starter Bundle</h3>
+          <p class="premium-desc">Kick off your journey with 15 Eco Points, 500 materials, and the exclusive Founder badge.</p>
+        </div>
+        <div class="premium-card reveal">
+          <div class="premium-emoji" aria-hidden="true">🌟</div>
+          <h3 class="premium-title">Eco Point Packs</h3>
+          <p class="premium-desc">Skip a few prestiges and grab Eco Points directly to spend on permanent upgrades.</p>
+        </div>
+      </div>
+      <p class="eco-shop-note reveal">VerdaWorld is free to play. Purchases are entirely optional and sync across your devices.</p>
     </div>
   </section>
 
@@ -586,7 +851,7 @@
           <div class="step-number">3</div>
           <span class="step-emoji" aria-hidden="true">🚀</span>
           <h3 class="step-title">Evolve</h3>
-          <p class="step-desc">Research technologies, prestige for permanent bonuses, and climb the global leaderboard.</p>
+          <p class="step-desc">Research technologies, prestige for Eco Points, spend them in the Eco Shop, and climb the global leaderboard.</p>
         </div>
       </div>
     </div>
@@ -616,11 +881,10 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-copy">&copy; 2026 VerdaWorld. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 W3 Applications. All rights reserved.</p>
       <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="mailto:games@w3applications.com">Contact</a>
       </div>
     </div>
   </footer>
