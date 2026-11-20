@@ -2,920 +2,363 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VerdaWorld — Build Green. Think Big. Save the Planet.</title>
-  <meta name="description" content="VerdaWorld is an eco-city builder game where you balance growth and sustainability. Build green energy, manage resources, and keep your city thriving." />
-  <meta property="og:title" content="VerdaWorld — Eco City Builder" />
-  <meta property="og:description" content="Build green. Think big. Save the planet. An eco-city builder game for iOS and Android." />
-  <meta property="og:image" content="https://verdaworld.app/hero.png" />
-  <meta property="og:url" content="https://verdaworld.app/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://verdaworld.app/hero.png" />
-  <meta name="theme-color" content="#030D09" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VerdaWorld: Eco City Puzzle</title>
+  <meta name="description" content="VerdaWorld is a city-layout puzzle for iPhone, iPad and Android. Place homes, parks, power and water on a small board and house as many people as you can. No timers, no waiting, no ads." />
   <link rel="canonical" href="https://verdaworld.app/" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>" />
+  <meta name="theme-color" content="#0E4A43" />
+  <meta name="apple-itunes-app" content="app-id=6760656180" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="VerdaWorld" />
+  <meta property="og:title" content="VerdaWorld: Eco City Puzzle" />
+  <meta property="og:description" content="Place homes, parks, power and water on a small board and house as many people as you can. No timers, no waiting, no ads." />
+  <meta property="og:url" content="https://verdaworld.app/" />
+  <meta property="og:image" content="https://verdaworld.app/assets/img/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="VerdaWorld: every tile matters. A small city board with homes around a park." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://verdaworld.app/assets/img/og.png" />
+
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/site.css" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MobileApplication",
+    "@type": ["VideoGame", "MobileApplication"],
     "name": "VerdaWorld",
-    "operatingSystem": "iOS, Android",
-    "applicationCategory": "GameApplication",
-    "description": "An eco-city builder game where you balance growth and sustainability. Build green energy, manage resources, and keep your city thriving.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "alternateName": "VerdaWorld: Eco City Puzzle",
+    "description": "A city-layout puzzle. Place homes, parks, power and water on a small board and house as many people as you can. No timers, no waiting, no ads.",
     "url": "https://verdaworld.app/",
-    "image": "https://verdaworld.app/hero.png",
-    "author": { "@type": "Organization", "name": "W3 Applications" }
+    "image": "https://verdaworld.app/assets/img/og.png",
+    "applicationCategory": "GameApplication",
+    "genre": "Puzzle",
+    "operatingSystem": "iOS, Android",
+    "softwareVersion": "3.0.0",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "installUrl": [
+      "https://apps.apple.com/us/app/verdaworld/id6760656180",
+      "https://play.google.com/store/apps/details?id=com.w3applications.VerdaWorld"
+    ],
+    "author": { "@type": "Organization", "name": "W3 Applications Inc." },
+    "publisher": { "@type": "Organization", "name": "W3 Applications Inc." }
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    /* ─── Reset & Base ─── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #030D09;
-      color: #E0F2E9;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* ─── Utility ─── */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .section-label {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: #00E5A0;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 16px;
-    }
-    .section-subtitle {
-      font-size: 1.05rem;
-      color: rgba(224, 242, 233, 0.6);
-      max-width: 600px;
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #00E5A0, #00BCD4, #4CAF50);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ─── Floating Particles ─── */
-    .particles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .particle {
-      position: absolute;
-      font-size: 24px;
-      opacity: 0;
-      animation: floatUp 14s linear infinite;
-    }
-    .particle:nth-child(1) { left: 5%;  animation-delay: 0s;   }
-    .particle:nth-child(2) { left: 15%; animation-delay: 2s;   }
-    .particle:nth-child(3) { left: 30%; animation-delay: 4s;   }
-    .particle:nth-child(4) { left: 50%; animation-delay: 1s;   }
-    .particle:nth-child(5) { left: 65%; animation-delay: 6s;   }
-    .particle:nth-child(6) { left: 80%; animation-delay: 3s;   }
-    .particle:nth-child(7) { left: 92%; animation-delay: 5s;   }
-    .particle:nth-child(8) { left: 42%; animation-delay: 7.5s; }
-    .particle:nth-child(9) { left: 72%; animation-delay: 9s;   }
-    .particle:nth-child(10){ left: 22%; animation-delay: 10.5s;}
-    @keyframes floatUp {
-      0%   { transform: translateY(100vh) scale(0.5); opacity: 0; }
-      10%  { opacity: 0.25; }
-      80%  { opacity: 0.2; }
-      100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
-    }
-
-    /* ─── Nav ─── */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 16px 0;
-      background: rgba(3, 13, 9, 0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 229, 160, 0.08);
-      transition: background 0.3s;
-    }
-    .nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-size: 1.25rem;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: rgba(224, 242, 233, 0.65);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #00E5A0; }
-    .nav-cta {
-      padding: 8px 20px !important;
-      background: linear-gradient(135deg, rgba(0,229,160,0.2), rgba(0,188,212,0.2)) !important;
-      border: 1px solid rgba(0,229,160,0.4) !important;
-      border-radius: 10px !important;
-      color: #00E5A0 !important;
-      transition: all 0.25s !important;
-    }
-    .nav-cta:hover {
-      background: linear-gradient(135deg, rgba(0,229,160,0.35), rgba(0,188,212,0.35)) !important;
-      box-shadow: 0 0 20px rgba(0,229,160,0.15) !important;
-    }
-
-    /* ─── Hero ─── */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 80%, rgba(0,229,160,0.06) 0%, transparent 60%),
-                  radial-gradient(ellipse at 20% 20%, rgba(0,188,212,0.04) 0%, transparent 50%);
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 720px; }
-    .hero-emoji {
-      font-size: 48px;
-      margin-bottom: 20px;
-      animation: bounce 2.5s ease-in-out infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .hero-title {
-      font-size: clamp(2.8rem, 7vw, 4.5rem);
-      font-weight: 900;
-      letter-spacing: 6px;
-      line-height: 1.05;
-      margin-bottom: 20px;
-      text-shadow: 0 0 40px rgba(0,229,160,0.2), 0 0 80px rgba(0,188,212,0.1);
-    }
-    .hero-tagline {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: rgba(224, 242, 233, 0.6);
-      font-style: italic;
-      letter-spacing: 1px;
-      margin-bottom: 40px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 18px 8px 8px;
-      margin-bottom: 36px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: rgba(224, 242, 233, 0.85);
-      background: rgba(0, 229, 160, 0.07);
-      border: 1px solid rgba(0, 229, 160, 0.25);
-      transition: all 0.25s;
-    }
-    .hero-badge:hover {
-      background: rgba(0, 229, 160, 0.14);
-      border-color: rgba(0, 229, 160, 0.5);
-      box-shadow: 0 0 20px rgba(0, 229, 160, 0.12);
-    }
-    .hero-badge-pill {
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      background: linear-gradient(135deg, #00E5A0, #00BCD4);
-      color: #030D09;
-    }
-    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 32px;
-      font-size: 1rem;
-      font-weight: 700;
-      border-radius: 14px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      font-family: inherit;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #00E5A0, #00BCD4);
-      color: #030D09;
-      box-shadow: 0 4px 24px rgba(0, 229, 160, 0.25);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(0, 229, 160, 0.35);
-    }
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: #E0F2E9;
-      border: 1px solid rgba(0, 229, 160, 0.25);
-      backdrop-filter: blur(12px);
-    }
-    .btn-secondary:hover {
-      background: rgba(0, 229, 160, 0.1);
-      border-color: rgba(0, 229, 160, 0.5);
-      transform: translateY(-2px);
-    }
-    .btn-icon { font-size: 1.2em; }
-
-    /* ─── Hero Image ─── */
-    .hero-image-wrapper {
-      position: relative;
-      margin: 80px auto 0;
-      max-width: 900px;
-      z-index: 2;
-    }
-    .hero-image-wrapper::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(0,229,160,0.3), rgba(0,188,212,0.15), rgba(76,175,80,0.3));
-      z-index: -1;
-    }
-    .hero-image-wrapper::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 20px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(0,229,160,0.08);
-      z-index: -1;
-    }
-    .hero-image {
-      border-radius: 20px;
-      width: 100%;
-      object-fit: cover;
-      aspect-ratio: 16/9;
-    }
-
-    /* ─── Features ─── */
-    .features {
-      position: relative;
-      padding: 120px 0;
-      z-index: 1;
-    }
-    .features-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .features-header .section-subtitle { margin: 0 auto; }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .feature-card {
-      position: relative;
-      padding: 32px 28px;
-      border-radius: 18px;
-      background: linear-gradient(145deg, rgba(10,46,26,0.6), rgba(5,21,16,0.8));
-      border: 1px solid rgba(0,229,160,0.1);
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
-    }
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 18px;
-      background: radial-gradient(circle at top left, rgba(0,229,160,0.05), transparent 60%);
-      opacity: 0;
-      transition: opacity 0.35s;
-    }
-    .feature-card:hover {
-      border-color: rgba(0,229,160,0.25);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 20px rgba(0,229,160,0.05);
-    }
-    .feature-card:hover::before { opacity: 1; }
-    .feature-emoji {
-      font-size: 36px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .feature-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-    .feature-desc {
-      font-size: 0.9rem;
-      color: rgba(224,242,233,0.55);
-      line-height: 1.6;
-    }
-
-    /* ─── Eco Shop ─── */
-    .eco-shop {
-      position: relative;
-      padding: 100px 0 120px;
-      z-index: 1;
-      background: linear-gradient(180deg, transparent, rgba(0,188,212,0.025) 50%, transparent);
-    }
-    .eco-shop-header { text-align: center; margin-bottom: 56px; }
-    .eco-shop-header .section-subtitle { margin: 0 auto; }
-    .upgrade-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 14px;
-      margin-bottom: 64px;
-    }
-    .upgrade-chip {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: linear-gradient(145deg, rgba(10,46,26,0.5), rgba(5,21,16,0.7));
-      border: 1px solid rgba(0,229,160,0.1);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .upgrade-chip:hover {
-      border-color: rgba(0,229,160,0.3);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-    }
-    .upgrade-chip-emoji { font-size: 26px; flex-shrink: 0; }
-    .upgrade-chip-name {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 2px;
-    }
-    .upgrade-chip-desc {
-      font-size: 0.78rem;
-      color: rgba(224,242,233,0.5);
-      line-height: 1.4;
-    }
-    .premium-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 860px;
-      margin: 0 auto;
-    }
-    .premium-card {
-      position: relative;
-      padding: 32px 28px;
-      border-radius: 18px;
-      text-align: center;
-      background: linear-gradient(145deg, rgba(10,46,26,0.6), rgba(5,21,16,0.8));
-      border: 1px solid rgba(0,229,160,0.12);
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
-    }
-    .premium-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-    }
-    .premium-card.featured {
-      border-color: rgba(255, 213, 79, 0.35);
-      background: linear-gradient(145deg, rgba(46,38,10,0.45), rgba(5,21,16,0.85));
-    }
-    .premium-card.featured:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 24px rgba(255,213,79,0.08); }
-    .premium-tag {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      background: rgba(255, 213, 79, 0.15);
-      border: 1px solid rgba(255, 213, 79, 0.35);
-      color: #FFD54F;
-    }
-    .premium-emoji { font-size: 40px; margin-bottom: 14px; }
-    .premium-title { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
-    .premium-desc { font-size: 0.88rem; color: rgba(224,242,233,0.55); line-height: 1.6; }
-    .eco-shop-note {
-      text-align: center;
-      margin-top: 32px;
-      font-size: 0.82rem;
-      color: rgba(224,242,233,0.4);
-    }
-
-    /* ─── How It Works ─── */
-    .how-it-works {
-      position: relative;
-      padding: 100px 0 120px;
-      z-index: 1;
-      background: linear-gradient(180deg, transparent, rgba(0,229,160,0.02) 50%, transparent);
-    }
-    .how-header {
-      text-align: center;
-      margin-bottom: 72px;
-    }
-    .how-header .section-subtitle { margin: 0 auto; }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      position: relative;
-    }
-    .steps::before {
-      content: '';
-      position: absolute;
-      top: 50px;
-      left: 15%;
-      right: 15%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(0,229,160,0.2), rgba(0,188,212,0.2), transparent);
-    }
-    .step {
-      text-align: center;
-      position: relative;
-    }
-    .step-number {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      font-weight: 800;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 2;
-      background: linear-gradient(135deg, rgba(0,229,160,0.2), rgba(0,188,212,0.15));
-      border: 2px solid rgba(0,229,160,0.3);
-      color: #00E5A0;
-      box-shadow: 0 0 24px rgba(0,229,160,0.1);
-    }
-    .step-emoji {
-      font-size: 40px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .step-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-    .step-desc {
-      font-size: 0.9rem;
-      color: rgba(224,242,233,0.5);
-      max-width: 280px;
-      margin: 0 auto;
-    }
-
-    /* ─── CTA ─── */
-    .cta {
-      position: relative;
-      padding: 100px 0;
-      text-align: center;
-      z-index: 1;
-    }
-    .cta-box {
-      padding: 64px 40px;
-      border-radius: 24px;
-      background: linear-gradient(145deg, rgba(10,46,26,0.7), rgba(5,21,16,0.9));
-      border: 1px solid rgba(0,229,160,0.12);
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-box::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(0,229,160,0.03) 0%, transparent 50%);
-      animation: rotateBg 20s linear infinite;
-    }
-    @keyframes rotateBg {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .cta-content { position: relative; z-index: 2; }
-    .cta-emoji { font-size: 56px; margin-bottom: 20px; }
-    .cta .section-title { margin-bottom: 12px; }
-    .cta .section-subtitle { margin: 0 auto 36px; }
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; align-items: center; }
-    .store-badge {
-      display: inline-block;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-    .store-badge:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.15);
-    }
-    .store-badge img {
-      height: 54px;
-      width: auto;
-    }
-    .store-badge-google img {
-      height: 80px;
-    }
-
-    /* ─── Footer ─── */
-    .footer {
-      position: relative;
-      z-index: 1;
-      padding: 40px 0;
-      border-top: 1px solid rgba(0,229,160,0.08);
-    }
-    .footer .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .footer-copy {
-      font-size: 0.85rem;
-      color: rgba(224,242,233,0.35);
-    }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a {
-      font-size: 0.85rem;
-      color: rgba(224,242,233,0.4);
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: #00E5A0; }
-
-    /* ─── Reveal Animation ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 768px) {
-      .nav-links a:not(.nav-cta) { display: none; }
-      .steps {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .steps::before { display: none; }
-      .features-grid { grid-template-columns: 1fr; }
-      .hero { padding: 100px 20px 60px; }
-      .hero-image-wrapper { margin-top: 48px; }
-      .cta-box { padding: 48px 24px; }
-    }
-    @media (max-width: 480px) {
-      .hero-title { letter-spacing: 3px; }
-      .hero-badge { font-size: 0.72rem; max-width: 92%; text-align: left; }
-      .upgrade-grid { grid-template-columns: 1fr 1fr; }
-      .hero-buttons { flex-direction: column; align-items: center; }
-      .cta-buttons { flex-direction: column; align-items: center; }
-    }
-  </style>
 </head>
 <body>
-  <!-- Particles -->
-  <div class="particles" aria-hidden="true">
-    <span class="particle">🌳</span>
-    <span class="particle">⚡</span>
-    <span class="particle">🏠</span>
-    <span class="particle">💧</span>
-    <span class="particle">🌍</span>
-    <span class="particle">🏭</span>
-    <span class="particle">☀️</span>
-    <span class="particle">🌱</span>
-    <span class="particle">🏗️</span>
-    <span class="particle">🌿</span>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="b-H" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#4F8FE8"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><path fill="#fff" fill-opacity=".95" d="M18 52 50 22 82 52Z"/><rect fill="#fff" fill-opacity=".95" x="27" y="50" width="46" height="28"/><rect fill="#335D97" x="44" y="60" width="12" height="18"/></symbol>
+    <symbol id="b-P" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#43A85B"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><rect fill="#fff" fill-opacity=".95" x="46" y="56" width="8" height="24"/><circle fill="#fff" fill-opacity=".95" cx="50" cy="42" r="21"/><circle fill="#fff" fill-opacity=".95" cx="36" cy="50" r="12"/><circle fill="#fff" fill-opacity=".95" cx="64" cy="50" r="12"/></symbol>
+    <symbol id="b-S" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#E9A92B"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><circle fill="#fff" fill-opacity=".95" cx="50" cy="50" r="15"/><path d="M73 50L81 50M66.26 66.26L71.92 71.92M50 73L50 81M33.74 66.26L28.08 71.92M27 50L19 50M33.74 33.74L28.08 28.08M50 27L50 19M66.26 33.74L71.92 28.08" stroke="#fff" stroke-opacity=".95" stroke-width="7" stroke-linecap="round" fill="none"/></symbol>
+    <symbol id="b-W" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#1FA9CC"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><path fill="#fff" fill-opacity=".95" d="M50 20Q73 40 70 58A20 20 0 0 1 30 58Q27 40 50 20Z"/></symbol>
+    <symbol id="b-F" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#858893"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><path fill="#fff" fill-opacity=".95" d="M18 80V52L38 63V52L58 63V24H72V63H82V80Z"/><rect fill="#565860" x="26" y="68" width="8" height="6"/><rect fill="#565860" x="44" y="68" width="8" height="6"/></symbol>
+    <symbol id="b-R" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#1F9E91"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><path d="M55.44 28.68A22 22 0 0 1 71.99 50.52M65.74 65.37A22 22 0 0 1 38.55 68.79M28.82 55.94A22 22 0 0 1 39.45 30.69" stroke="#fff" stroke-opacity=".95" stroke-width="7" stroke-linecap="round" fill="none"/><path fill="#fff" fill-opacity=".95" d="M70.71 57.41L80.49 50.72L63.5 50.32ZM33.22 64.23L34.13 76.05L42.98 61.53ZM46.06 28.36L35.38 23.23L43.53 38.15Z"/></symbol>
+    <symbol id="b-T" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#8A68CF"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><rect fill="#fff" fill-opacity=".95" x="20" y="30" width="60" height="38" rx="8"/><rect fill="#5A4487" x="27" y="37" width="20" height="13"/><rect fill="#5A4487" x="53" y="37" width="20" height="13"/><circle fill="#fff" fill-opacity=".95" cx="34" cy="71" r="6.5"/><circle fill="#fff" fill-opacity=".95" cx="66" cy="71" r="6.5"/></symbol>
+    <symbol id="b-A" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#35598A"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><rect fill="#fff" fill-opacity=".95" x="20" y="46" width="17" height="34"/><rect fill="#fff" fill-opacity=".95" x="41" y="20" width="19" height="60"/><rect fill="#fff" fill-opacity=".95" x="64" y="34" width="16" height="46"/><rect fill="#223A5A" x="46" y="30" width="9" height="5"/><rect fill="#223A5A" x="46" y="42" width="9" height="5"/><rect fill="#223A5A" x="46" y="54" width="9" height="5"/><rect fill="#223A5A" x="46" y="66" width="9" height="5"/></symbol>
+    <symbol id="b-C" viewBox="0 0 100 100"><rect x="6" y="6" width="88" height="88" rx="16" fill="#55473C"/><rect x="6" y="6" width="88" height="30" rx="16" fill="#fff" fill-opacity=".1"/><path fill="#fff" fill-opacity=".95" d="M28 80 37 44H63L72 80Z"/><circle fill="#fff" fill-opacity=".95" cx="50" cy="32" r="8"/><circle fill="#fff" fill-opacity=".95" cx="61" cy="23" r="6"/><circle fill="#fff" fill-opacity=".95" cx="70" cy="16" r="4"/></symbol>
+    <symbol id="g-river" viewBox="0 0 100 100"><rect width="100" height="100" fill="#1C6CA6"/><path d="M24 42q8.7-9 17.3 0t17.4 0 17.3 0M24 60q8.7-9 17.3 0t17.4 0 17.3 0" stroke="#fff" stroke-opacity=".35" stroke-width="4.5" stroke-linecap="round" fill="none"/></symbol>
+    <symbol id="g-rock" viewBox="0 0 100 100"><rect width="100" height="100" fill="#39474A"/><path d="M16 78 42 30 58 52 66 42 86 78Z" fill="#8C979A"/><path d="M42 30 58 52 50 78H16Z" fill="#687477"/></symbol>
+    <symbol id="g-toxic" viewBox="0 0 100 100"><rect width="100" height="100" fill="#54486A"/><path d="M50 26 78 74H22Z" fill="none" stroke="#D7F03C" stroke-width="6" stroke-linejoin="round"/><rect x="47" y="44" width="6" height="15" rx="3" fill="#D7F03C"/><circle cx="50" cy="66" r="3.6" fill="#D7F03C"/></symbol>
+    <symbol id="i-star" viewBox="0 0 100 100"><path d="M50 8 62.9 35.6 93 39.6 70.9 60.6 76.5 90.5 50 75.9 23.5 90.5 29.1 60.6 7 39.6 37.1 35.6Z"/></symbol>
+  </svg>
+
+  <div class="backdrop">
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./" aria-label="VerdaWorld home">
+          <img src="assets/img/icon-192.png" alt="" width="34" height="34" />
+          <span>VerdaWorld</span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="#how">How it plays</a>
+          <a href="#daily">Daily city</a>
+          <a href="#free">What's free</a>
+          <a href="#faq">Questions</a>
+          <a class="nav-cta" href="#download">Get the game</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-copy">
+            <a class="pill" href="#season-2"><b>Season 2</b> Now a puzzle game</a>
+            <h1>Every tile matters.</h1>
+            <p class="lead">VerdaWorld is a city-layout puzzle. Place homes, parks, power and water on a small board and house as many people as you can. No timers, no waiting, no ads.</p>
+            <div class="stores">
+              <a href="https://apps.apple.com/us/app/verdaworld/id6760656180"><img src="assets/img/badge-app-store.svg" alt="Download on the App Store" width="150" height="50" /></a>
+              <a href="https://play.google.com/store/apps/details?id=com.w3applications.VerdaWorld"><img src="assets/img/badge-google-play.png" alt="Get it on Google Play" width="168" height="50" /></a>
+            </div>
+            <ul class="hero-facts">
+              <li>Free to play</li>
+              <li>iPhone, iPad and Android</li>
+              <li>Works offline</li>
+            </ul>
+          </div>
+
+          <div class="hero-demo">
+            <div class="demo" id="demo">
+              <noscript><img src="assets/img/screen-three-stars.webp" alt="A finished VerdaWorld level with three stars: homes grouped around parks, with solar panels and pumps along a river." width="720" height="1561" /></noscript>
+            </div>
+            <p class="hero-demo-caption">A real level from the game. Add one park and watch the city grow.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Promises -->
+      <section class="promises" aria-label="What to expect">
+        <div class="wrap">
+          <ul>
+            <li><strong>No timers</strong><span>The population changes the moment you place a tile. Nothing ticks.</span></li>
+            <li><strong>No waiting</strong><span>No energy, no cooldowns, no coming back tomorrow to finish.</span></li>
+            <li><strong>No ads</strong><span>Not one. The first 36 levels and the daily puzzle are free.</span></li>
+            <li><strong>No lock-in</strong><span>Take any building back for a full refund and try another spot.</span></li>
+          </ul>
+        </div>
+      </section>
+    </main>
   </div>
 
-  <!-- Nav -->
-  <nav class="nav" id="nav">
-    <div class="container">
-      <div class="nav-logo"><span class="gradient-text">VERDAWORLD</span></div>
-      <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#eco-shop">Eco Shop</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#download" class="nav-cta">Download</a>
+  <!-- How it plays -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">How it plays</p>
+          <h2>Where you build is the puzzle.</h2>
+          <p class="lead" style="margin-top:18px">Every level is a small board and a budget of blocks. What you build matters. Where you put it matters just as much.</p>
+          <ol class="basics" style="margin-top:34px">
+            <li><strong>Homes need power and water.</strong> A home only fills with people when the city has both to spare. Without them it stays empty.</li>
+            <li><strong>Neighbours change everything.</strong> A park makes the homes beside it bigger. A factory beside a home does the opposite.</li>
+            <li><strong>Blocks are your budget.</strong> Each extra copy of the same building costs more. Factories earn you more blocks, at a price in smog.</li>
+            <li><strong>The board fights back.</strong> Rivers double a pump. Rock gets in the way. Every board is a different trade-off.</li>
+          </ol>
+        </div>
+        <figure class="shot media">
+          <img class="phone" src="assets/img/screen-every-tile-matters.webp" alt="Industry 10 in VerdaWorld: a six by six board crossed by a river, with homes, parks, solar panels, pumps, factories and a recycling centre. The city houses 884 people and smog is driving out 15% of them." width="720" height="1561" loading="lazy" />
+          <figcaption>Industry 10. Two factories pay for the city, and their smog is driving out 15% of it.</figcaption>
+        </figure>
+      </div>
+
+      <div class="pieces-title">
+        <h3>The pieces</h3>
+        <p>New buildings arrive a few at a time, so no level asks you to learn everything at once.</p>
+      </div>
+      <ul class="pieces">
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-H" /></svg><h4>Home</h4><p>Houses 100. Needs 1 power and 1 water, or it stays empty.</p></li>
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-P" /></svg><h4>Park</h4><p>+40 people in each home beside it. Filters smog from the polluters next door.</p></li>
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-S" /></svg><h4>Solar</h4><p>+5 power. Clean, and it never runs out.</p></li>
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-W" /></svg><h4>Pump</h4><p>+4 water, or +8 beside a river. Uses 2 power.</p></li>
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-F" /></svg><h4>Factory</h4><p>40 extra blocks to build with. <span class="catch">The catch:</span> it makes smog, and each home beside it holds 40 fewer people.</p></li>
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-R" /></svg><h4>Recycling</h4><p>20 extra blocks, and it removes 2 smog. Uses 2 power.</p></li>
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-T" /></svg><h4>Transit hub</h4><p>+40 people in each home beside it, and several hubs add up. Uses 1 power.</p></li>
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-A" /></svg><h4>Arcology</h4><p>Houses 500. Needs 6 power and 5 water. Ignores its neighbours.</p></li>
+      </ul>
+      <ul class="pieces ground-row">
+        <li class="piece"><svg class="ground" viewBox="0 0 100 100" aria-hidden="true"><use href="#g-river" /></svg><h4>River</h4><p>Cannot be built on, but a pump beside it gives double.</p></li>
+        <li class="piece"><svg class="ground" viewBox="0 0 100 100" aria-hidden="true"><use href="#g-rock" /></svg><h4>Rock</h4><p>Cannot be built on. Plan around it.</p></li>
+        <li class="piece"><svg class="ground" viewBox="0 0 100 100" aria-hidden="true"><use href="#g-toxic" /></svg><h4>Toxic ground</h4><p>Makes smog unless a park is on it or beside it.</p></li>
+        <li class="piece"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#b-C" /></svg><h4>Coal plant</h4><p>Already there and cannot be removed. Plenty of power, and smog to deal with.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Explains itself -->
+  <section class="section alt" id="explains">
+    <div class="wrap">
+      <div class="split">
+        <div class="duo media">
+          <figure class="shot">
+            <img class="phone" src="assets/img/screen-see-why.webp" alt="The score breakdown in VerdaWorld: 10 homes at 100 people, plus 40 each for the 10 homes beside a park, makes 1400 people. Below it, a list of what is holding the score back." width="720" height="1561" loading="lazy" />
+          </figure>
+          <figure class="shot">
+            <img class="phone" src="assets/img/screen-three-stars.webp" alt="Metropolis 5 finished with three stars and confetti: 2060 people housed, matching the best known city." width="720" height="1561" loading="lazy" />
+          </figure>
+        </div>
+        <div>
+          <p class="eyebrow">No manual</p>
+          <h2>See exactly why.</h2>
+          <p class="lead" style="margin-top:18px">The rules are taught by the city itself. You never have to guess what a number means or why it moved.</p>
+          <ul class="ticks">
+            <li><strong>A line of advice, always.</strong> It says what your city needs next: more water, a park, or fewer homes beside the factory.</li>
+            <li><strong>Tap the score.</strong> See how it adds up and what is holding it back. Press and hold any tile for its own numbers.</li>
+            <li><strong>Three stars to earn.</strong> Every level was solved before it shipped, so the targets are set against the best known city.</li>
+            <li><strong>Three hints per level, never more.</strong> The stars you earn are yours.</li>
+            <li><strong>Any screen, either way up.</strong> Portrait or landscape, on phones, tablets and foldables.</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-emoji" aria-hidden="true">🌍🌱⚡</div>
-      <h1 class="hero-title gradient-text">VERDAWORLD</h1>
-      <p class="hero-tagline">Build green. Think big. Save the planet.</p>
-      <a href="#eco-shop" class="hero-badge">
-        <span class="hero-badge-pill">NEW</span>
-        v1.1 — The Eco Shop update: 10 permanent upgrades, smart reminders &amp; more
-        <span aria-hidden="true">→</span>
+  <!-- Daily -->
+  <section class="section" id="daily">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="eyebrow">The daily city</p>
+          <h2>One city a day.<br />The same for everyone.</h2>
+          <p class="lead" style="margin-top:18px">A new puzzle every morning, with the same board for every player. Play it once, see what share of players you beat, and keep your streak going.</p>
+          <div class="share-card" role="img" aria-label="Sample shared result: VerdaWorld Daily number 35, three stars. 980 housed, beat 86% of planners, 12-day streak. verdaworld.app">
+            <div><strong>VerdaWorld Daily #35</strong> &nbsp;<span class="stars">★★★</span></div>
+            <div>980 housed · beat 86% of planners · 12-day streak</div>
+            <div class="link">https://verdaworld.app</div>
+          </div>
+          <p class="share-note">A shared result says how you did, never how. No board, no building counts, no spoilers. Sample numbers shown.</p>
+        </div>
+        <figure class="shot media">
+          <img class="phone wide" src="assets/img/screen-daily.webp" alt="The daily puzzle screen: Daily number 35, three stars, 980 people housed, beat 86% of 236 planners, on a 12-day streak. A harder city and past puzzles are offered with the Green Pass." width="720" height="880" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free and extras -->
+  <section class="section alt" id="free">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What's free</p>
+        <h2>36 free cities. More when you want them.</h2>
+        <p class="lead">Three chapters and the daily puzzle cost nothing, and everything in them can be finished without paying.</p>
+      </div>
+      <div class="offer">
+        <div class="card free">
+          <h3>Free</h3>
+          <p>36 levels across three chapters, each with three stars to earn, and a new daily puzzle every morning.</p>
+          <ul class="chapters">
+            <li><b>Foundations</b><span>12 levels. Homes, power, water and parks.</span></li>
+            <li><b>Industry</b><span>12 levels. Factories, smog and recycling.</span></li>
+            <li><b>Metropolis</b><span>12 levels. Bigger boards and bigger buildings.</span></li>
+          </ul>
+          <ul class="ticks">
+            <li>The daily puzzle, with streaks and sharing</li>
+            <li>Hints, advice and the score breakdown</li>
+            <li>No ads, and nothing that needs a connection to play</li>
+          </ul>
+          <div class="peek">
+            <img src="assets/img/screen-free-cities.webp" alt="The level list in VerdaWorld: Foundations, Industry and Metropolis, twelve levels each, with the stars earned on each one." width="720" height="1561" loading="lazy" />
+          </div>
+        </div>
+        <div class="card">
+          <h3>Optional extras</h3>
+          <p>One-time purchases. Nothing here is a subscription.</p>
+          <ul class="extras">
+            <li><b>Rust Belt level pack</b><span>24 cities built on someone else's mess: coal plants, old factories and poisoned ground. The first two are free to try.</span></li>
+            <li><b>Skyline level pack</b><span>24 broken-up boards with generous budgets and strict limits. When you cannot build out, build clever. The first two are free to try.</span></li>
+            <li><b>Green Pass</b><span>Three free hints a day, every past daily puzzle, and a second, harder daily city.</span></li>
+            <li><b>Themes</b><span>Recolour the ground your city stands on. Purely for looks.</span>
+              <div class="swatches" role="img" aria-label="Seven board themes: Classic, Spring, Summer, Autumn, Winter, Night and Blueprint">
+                <i style="--a:#2E6A47;--b:#2A6242" title="Classic"></i>
+                <i style="--a:#6DB052;--b:#63A54A" title="Spring"></i>
+                <i style="--a:#008A58;--b:#007E50" title="Summer"></i>
+                <i style="--a:#B98236;--b:#AD7730" title="Autumn"></i>
+                <i style="--a:#86A1B1;--b:#7C97A7" title="Winter"></i>
+                <i style="--a:#1F2F4A;--b:#1A2942" title="Night"></i>
+                <i style="--a:#1F55A0;--b:#1F55A0" title="Blueprint"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="fair"><b>Nothing you can buy makes a puzzle easier to top.</b> Every player solves a level with the same tools. Eco Points earned by playing can unlock packs and themes too.</p>
+    </div>
+  </section>
+
+  <!-- Season 2 -->
+  <section class="section" id="season-2">
+    <div class="wrap returning">
+      <div>
+        <p class="eyebrow">Season 2 · Version 3.0</p>
+        <h2>Played VerdaWorld before?</h2>
+        <p class="lead" style="margin-top:18px">Season 2 replaces the old idle city builder with this puzzle game. Here is what happened to what you had.</p>
+      </div>
+      <ul class="ticks" style="margin-top:8px">
+        <li><strong>Everything you bought is still yours.</strong> Open Settings and choose Restore purchases if anything is missing on a new device.</li>
+        <li><strong>Purchased Eco Points are back in your balance.</strong> They now buy hints, level packs and themes.</li>
+        <li><strong>Your Season 1 city is retired, not forgotten.</strong> Its record is kept on your Season 1 Mayor badge.</li>
+        <li><strong>Early Green Pass owners get the Rust Belt pack, free.</strong> A thank-you for being here first.</li>
+        <li><strong>Folding or rotating no longer loses buildings.</strong> The level decides the size of the board, never the screen.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section alt" id="faq">
+    <div class="wrap returning">
+      <div>
+        <p class="eyebrow">Questions</p>
+        <h2>Good to know.</h2>
+        <p class="lead" style="margin-top:18px">Anything else, write to <a href="mailto:games@w3applications.com">games@w3applications.com</a>.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Is VerdaWorld really free?</summary>
+          <p>Yes. The three chapters (36 levels) and the daily puzzle are free, and there are no ads. The level packs, the Green Pass and themes are optional one-time purchases.</p>
+        </details>
+        <details>
+          <summary>Do I need to be online?</summary>
+          <p>No. Every level works offline, including the daily puzzle. You need a connection only to compare your daily score with other players, to buy something, or to restore purchases.</p>
+        </details>
+        <details>
+          <summary>Is the Green Pass a subscription?</summary>
+          <p>No. It is a single purchase that you keep. Nothing in VerdaWorld renews or bills you again.</p>
+        </details>
+        <details>
+          <summary>Can I pay for a better score?</summary>
+          <p>No. Purchases add levels, hints and looks. They never change the rules or the tools you have on a level, and hints are capped at three per level, or one on a daily puzzle, however many you own.</p>
+        </details>
+        <details>
+          <summary>How do I move my purchases to a new phone?</summary>
+          <p>Sign in to the same Apple or Google account, open Settings in the game and choose Restore purchases. Level progress is stored on the device, so it stays with the device.</p>
+        </details>
+        <details>
+          <summary>Something is wrong, or I have an idea. Who do I tell?</summary>
+          <p>Write to <a href="mailto:games@w3applications.com">games@w3applications.com</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="section download" id="download">
+    <div class="wrap">
+      <div class="box">
+        <img class="app-icon" src="assets/img/icon-192.png" alt="" width="84" height="84" loading="lazy" />
+        <h2>Build green. Think big.</h2>
+        <p class="lead">36 free levels and a new city every morning. Free on iPhone, iPad and Android.</p>
+        <div class="stores">
+          <a href="https://apps.apple.com/us/app/verdaworld/id6760656180"><img src="assets/img/badge-app-store.svg" alt="Download on the App Store" width="150" height="50" loading="lazy" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.w3applications.VerdaWorld"><img src="assets/img/badge-google-play.png" alt="Get it on Google Play" width="168" height="50" loading="lazy" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="VerdaWorld home">
+        <img src="assets/img/icon-192.png" alt="" width="28" height="28" loading="lazy" />
+        <span>VerdaWorld</span>
       </a>
-      <div class="hero-buttons">
-        <a href="#download" class="btn btn-primary">
-          <span class="btn-icon">🚀</span> Download Free
-        </a>
-        <a href="#features" class="btn btn-secondary">
-          <span class="btn-icon">✨</span> Explore Features
-        </a>
-      </div>
-      <div class="hero-image-wrapper reveal">
-        <img src="hero.png" alt="VerdaWorld eco-city builder game showing a futuristic green city" class="hero-image" />
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="features" id="features">
-    <div class="container">
-      <div class="features-header reveal">
-        <p class="section-label">Why You'll Love It</p>
-        <h2 class="section-title">Build Your <span class="gradient-text">Dream Eco-City</span></h2>
-        <p class="section-subtitle">Balance growth and sustainability in a richly simulated world where every decision shapes your city's future.</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">⚡</span>
-          <h3 class="feature-title">Resource Management</h3>
-          <p class="feature-desc">Manage power, water, and materials. Every resource matters — run out and your city suffers the consequences.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">🏗️</span>
-          <h3 class="feature-title">Eco Building</h3>
-          <p class="feature-desc">Place residential zones, factories, parks, solar farms, and water plants. Design your perfect balanced metropolis.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">🔬</span>
-          <h3 class="feature-title">Tech Tree</h3>
-          <p class="feature-desc">Research solar farms, advanced recycling, water purification, and more to supercharge your city's efficiency.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">📅</span>
-          <h3 class="feature-title">Daily Challenges</h3>
-          <p class="feature-desc">Complete fresh objectives every day. Reach population goals, reduce pollution, and earn bonus rewards.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">🔄</span>
-          <h3 class="feature-title">Prestige System</h3>
-          <p class="feature-desc">Reset your city to earn Eco Points and permanent bonuses. Each prestige makes you stronger than before.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">🏆</span>
-          <h3 class="feature-title">Global Leaderboard</h3>
-          <p class="feature-desc">Compete with players worldwide. Your score is submitted automatically when you prestige — climb the ranks with your population, prestige level, and eco score.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">🌿</span>
-          <h3 class="feature-title">Eco Shop</h3>
-          <p class="feature-desc">New! Spend your hard-earned Eco Points on 10 permanent upgrades that survive prestige, game over, and even New Game.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">💤</span>
-          <h3 class="feature-title">Offline Progress</h3>
-          <p class="feature-desc">Your city keeps producing while you're away. Extend your offline earnings cap with the Night Shift upgrade.</p>
-        </div>
-        <div class="feature-card reveal">
-          <span class="feature-emoji" aria-hidden="true">🔔</span>
-          <h3 class="feature-title">Smart Reminders</h3>
-          <p class="feature-desc">New! Optional notifications let you know when your offline earnings are full, your streak is at risk, or fresh daily challenges arrive.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Eco Shop -->
-  <section class="eco-shop" id="eco-shop">
-    <div class="container">
-      <div class="eco-shop-header reveal">
-        <p class="section-label">New in v1.1</p>
-        <h2 class="section-title">The <span class="gradient-text">Eco Shop</span> Has Opened</h2>
-        <p class="section-subtitle">Every prestige earns Eco Points — now you can spend them. Ten permanent upgrades that stay with you forever, no matter how many times your city rises and falls.</p>
-      </div>
-      <div class="upgrade-grid">
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">🚀</span>
-          <div>
-            <div class="upgrade-chip-name">Head Start</div>
-            <div class="upgrade-chip-desc">Begin every city with bonus materials</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">⚙️</span>
-          <div>
-            <div class="upgrade-chip-name">Green Engineering</div>
-            <div class="upgrade-chip-desc">Boost all production, level after level</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">🌬️</span>
-          <div>
-            <div class="upgrade-chip-name">Clean Air Act</div>
-            <div class="upgrade-chip-desc">Permanently cut pollution generation</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">🌙</span>
-          <div>
-            <div class="upgrade-chip-name">Night Shift</div>
-            <div class="upgrade-chip-desc">Raise your offline earnings cap</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">📦</span>
-          <div>
-            <div class="upgrade-chip-name">Deep Storage</div>
-            <div class="upgrade-chip-desc">Expand your resource caps</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">🎉</span>
-          <div>
-            <div class="upgrade-chip-name">Happy Citizens</div>
-            <div class="upgrade-chip-desc">Parks give +25% more happiness</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">🏛️</span>
-          <div>
-            <div class="upgrade-chip-name">Urban Legacy</div>
-            <div class="upgrade-chip-desc">Earn bigger prestige rewards</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">🛡️</span>
-          <div>
-            <div class="upgrade-chip-name">Crisis Insurance</div>
-            <div class="upgrade-chip-desc">Smog Crisis penalties halved</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">👷</span>
-          <div>
-            <div class="upgrade-chip-name">Efficient Builders</div>
-            <div class="upgrade-chip-desc">All building costs reduced by 10%</div>
-          </div>
-        </div>
-        <div class="upgrade-chip reveal">
-          <span class="upgrade-chip-emoji" aria-hidden="true">🧠</span>
-          <div>
-            <div class="upgrade-chip-name">Tech Memory</div>
-            <div class="upgrade-chip-desc">Keep unlocked techs through prestige</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="premium-grid">
-        <div class="premium-card reveal featured">
-          <span class="premium-tag">Best Value</span>
-          <div class="premium-emoji" aria-hidden="true">🌿</div>
-          <h3 class="premium-title">Green Pass</h3>
-          <p class="premium-desc">One purchase, permanent 2× production — forever, on every city, even while you're offline.</p>
-        </div>
-        <div class="premium-card reveal">
-          <div class="premium-emoji" aria-hidden="true">🎁</div>
-          <h3 class="premium-title">Starter Bundle</h3>
-          <p class="premium-desc">Kick off your journey with 15 Eco Points, 500 materials, and the exclusive Founder badge.</p>
-        </div>
-        <div class="premium-card reveal">
-          <div class="premium-emoji" aria-hidden="true">🌟</div>
-          <h3 class="premium-title">Eco Point Packs</h3>
-          <p class="premium-desc">Skip a few prestiges and grab Eco Points directly to spend on permanent upgrades.</p>
-        </div>
-      </div>
-      <p class="eco-shop-note reveal">VerdaWorld is free to play. Purchases are entirely optional and sync across your devices.</p>
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section class="how-it-works" id="how-it-works">
-    <div class="container">
-      <div class="how-header reveal">
-        <p class="section-label">Getting Started</p>
-        <h2 class="section-title">Three Steps to a <span class="gradient-text">Greener World</span></h2>
-        <p class="section-subtitle">Jump right in — no tutorials needed. VerdaWorld is easy to learn, endlessly deep to master.</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step-number">1</div>
-          <span class="step-emoji" aria-hidden="true">🏠</span>
-          <h3 class="step-title">Build</h3>
-          <p class="step-desc">Place buildings on your grid — homes for citizens, factories for materials, solar farms for clean energy.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">2</div>
-          <span class="step-emoji" aria-hidden="true">📊</span>
-          <h3 class="step-title">Manage</h3>
-          <p class="step-desc">Keep pollution low and happiness high. Balance industrial output with parks and green energy.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">3</div>
-          <span class="step-emoji" aria-hidden="true">🚀</span>
-          <h3 class="step-title">Evolve</h3>
-          <p class="step-desc">Research technologies, prestige for Eco Points, spend them in the Eco Shop, and climb the global leaderboard.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta" id="download">
-    <div class="container">
-      <div class="cta-box reveal">
-        <div class="cta-content">
-          <div class="cta-emoji" aria-hidden="true">🌍</div>
-          <h2 class="section-title">Ready to Build a <span class="gradient-text">Greener Future</span>?</h2>
-          <p class="section-subtitle">Download VerdaWorld for free and start building your eco-city today.</p>
-          <div class="cta-buttons">
-            <a href="https://apps.apple.com/us/app/verdaworld/id6760656180" class="store-badge" aria-label="Download on the App Store">
-              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" />
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.w3applications.VerdaWorld" class="store-badge store-badge-google" aria-label="Get it on Google Play">
-              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-copy">&copy; 2026 W3 Applications. All rights reserved.</p>
-      <div class="footer-links">
+      <nav aria-label="Footer">
         <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
         <a href="mailto:games@w3applications.com">Contact</a>
-      </div>
+      </nav>
+      <p class="legal-line">&copy; 2026 W3 Applications Inc. All rights reserved. Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
     </div>
   </footer>
 
-  <!-- Reveal on Scroll -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const reveals = document.querySelectorAll('.reveal');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-          if (entry.isIntersecting) {
-            // Stagger animation for sibling cards
-            const siblings = entry.target.parentElement.querySelectorAll('.reveal');
-            const index = Array.from(siblings).indexOf(entry.target);
-            entry.target.style.transitionDelay = `${index * 0.08}s`;
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-      reveals.forEach(el => observer.observe(el));
-
-      // Nav background on scroll
-      const nav = document.getElementById('nav');
-      window.addEventListener('scroll', () => {
-        nav.style.background = window.scrollY > 60
-          ? 'rgba(3, 13, 9, 0.92)'
-          : 'rgba(3, 13, 9, 0.7)';
-      });
-    });
-  </script>
+  <script src="assets/js/demo.js" defer></script>
 </body>
 </html>

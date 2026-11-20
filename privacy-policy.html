@@ -2,116 +2,217 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — VerdaWorld</title>
-  <meta name="description" content="Privacy Policy for VerdaWorld, an eco-city builder game." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #030D09;
-      color: #cde0d5;
-      line-height: 1.75;
-      padding: 60px 24px 80px;
-    }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    a { color: #00E5A0; }
-    h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .last-updated {
-      font-size: 0.85rem;
-      color: rgba(205,224,213,0.45);
-      margin-bottom: 48px;
-    }
-    h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #fff;
-      margin-top: 40px;
-      margin-bottom: 12px;
-    }
-    p, li {
-      font-size: 0.95rem;
-      color: rgba(205,224,213,0.75);
-      margin-bottom: 12px;
-    }
-    ul {
-      padding-left: 24px;
-      margin-bottom: 12px;
-    }
-    li { margin-bottom: 6px; }
-    .footer-note {
-      margin-top: 60px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(0,229,160,0.08);
-      font-size: 0.85rem;
-      color: rgba(205,224,213,0.35);
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy · VerdaWorld</title>
+  <meta name="description" content="What information VerdaWorld handles, why, and who processes it. No account, no ads, and your game progress stays on your device." />
+  <link rel="canonical" href="https://verdaworld.app/privacy-policy.html" />
+  <meta name="theme-color" content="#0E4A43" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="VerdaWorld" />
+  <meta property="og:title" content="Privacy Policy · VerdaWorld" />
+  <meta property="og:url" content="https://verdaworld.app/privacy-policy.html" />
+  <meta property="og:image" content="https://verdaworld.app/assets/img/og.png" />
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: March 16, 2026</p>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="backdrop">
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./" aria-label="VerdaWorld home">
+          <img src="assets/img/icon-192.png" alt="" width="34" height="34" />
+          <span>VerdaWorld</span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="./">The game</a>
+          <a href="privacy-policy.html" aria-current="page">Privacy</a>
+          <a href="terms-of-service.html">Terms</a>
+          <a class="nav-cta" href="./#download">Get the game</a>
+        </nav>
+      </div>
+    </header>
 
-    <p>This Privacy Policy describes how VerdaWorld ("we", "us", or "our") handles information when you use our mobile application ("the App"). We are committed to protecting your privacy and being transparent about our practices.</p>
+    <main id="main">
+      <div class="wrap doc-head">
+        <p class="eyebrow">Legal</p>
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: November 20, 2026</p>
+        <p class="lead">This policy explains what information VerdaWorld handles when you play, why, and who processes it. It covers the game on iPhone, iPad and Android, and this website.</p>
+      </div>
 
-    <h2>1. Information We Collect</h2>
-    <p><strong>Game Progress Data</strong> — Your game state (city layout, resources, scores, prestige level, and settings) is stored locally on your device using on-device storage. This data never leaves your device unless you participate in the global leaderboard.</p>
-    <p><strong>Leaderboard Data</strong> — If you choose to participate in the global leaderboard, we collect:</p>
-    <ul>
-      <li>Your display name (sourced from Apple Game Center or Google Play Games)</li>
-      <li>Your game score</li>
-    </ul>
-    <p>This information is stored in Firebase Cloud Firestore to power the leaderboard feature.</p>
-    <p><strong>Authentication</strong> — Sign-in is handled entirely through Apple Game Center (iOS) or Google Play Games (Android). We do not collect, store, or have access to your account credentials, email address, or any other personal account information.</p>
+      <div class="wrap doc">
+        <nav class="toc" aria-label="On this page">
+          <h2>On this page</h2>
+          <ol>
+            <li><a href="#who">Who we are</a></li>
+            <li><a href="#device">What stays on your device</a></li>
+            <li><a href="#sent">What the game sends</a></li>
+            <li><a href="#not">What we do not collect</a></li>
+            <li><a href="#notifications">Notifications and sharing</a></li>
+            <li><a href="#partners">Who processes it</a></li>
+            <li><a href="#retention">Keeping and deleting</a></li>
+            <li><a href="#children">Children</a></li>
+            <li><a href="#rights">Your choices and rights</a></li>
+            <li><a href="#earlier">Earlier versions</a></li>
+            <li><a href="#website">This website</a></li>
+            <li><a href="#changes">Changes</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </nav>
 
-    <h2>2. Information We Do Not Collect</h2>
-    <p>We do not collect:</p>
-    <ul>
-      <li>Personal information (name, email, phone number, address)</li>
-      <li>Location data</li>
-      <li>Device identifiers or advertising IDs</li>
-      <li>Usage analytics or behavioral tracking data</li>
-      <li>Photos, contacts, or any other on-device data</li>
-    </ul>
+        <article class="prose">
+          <div class="summary">
+            <h2>The short version</h2>
+            <ul>
+              <li>There is no account. The game never asks for your name, email address or phone number.</li>
+              <li>There are no ads, the game does not use an advertising ID, and we do not sell information about you.</li>
+              <li>Your levels, stars and settings are saved on your device.</li>
+              <li>Daily puzzle scores are stored against a random ID, not a name, and are set to be deleted after about 35 days.</li>
+              <li>The game sends usage statistics and crash reports so we can fix and improve it, and purchases are handled by Apple or Google.</li>
+            </ul>
+          </div>
 
-    <h2>3. Third-Party Services</h2>
-    <p>The App uses the following third-party services:</p>
-    <ul>
-      <li><strong>Firebase Cloud Firestore</strong> (Google) — Used to store leaderboard scores. <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Policy</a></li>
-      <li><strong>Apple Game Center</strong> — Used for player authentication on iOS. <a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a></li>
-      <li><strong>Google Play Games</strong> — Used for player authentication on Android. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
-    </ul>
+          <h2 id="who">1. Who we are</h2>
+          <p>VerdaWorld (the "game") is published by W3 Applications Inc. ("we", "us"). We are responsible for the information described in this policy. You can reach us at <a href="mailto:games@w3applications.com">games@w3applications.com</a>.</p>
 
-    <h2>4. Data Storage and Security</h2>
-    <p>Local game data is stored on your device and is managed by the operating system's standard data protection mechanisms. Leaderboard data stored in Firebase is protected by Google's infrastructure-level security. We do not transmit any data over unencrypted connections.</p>
+          <h2 id="device">2. What stays on your device</h2>
+          <p>Your game progress is saved on your device and is not sent to us. This includes the levels you have played, your stars, your boards in progress, your Eco Point and hint balances, your badges, your daily streak and your settings.</p>
+          <p>Your device's own backup service, such as iCloud or Google's device backup, may include this data if you have backups turned on. That is controlled by your device settings, not by us.</p>
 
-    <h2>5. Children's Privacy</h2>
-    <p>VerdaWorld does not knowingly collect personal information from children under the age of 13. The App does not require any personal information to play. Leaderboard participation requires a Game Center or Google Play Games account, which is governed by Apple's or Google's respective age requirements and parental controls.</p>
+          <h2 id="sent">3. What the game sends</h2>
+          <p>When your device is online, the game sends the following. None of it includes your name, email address or contacts.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>What</th><th>Details</th><th>Why</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Daily puzzle scores</th>
+                  <td>When you finish a daily puzzle: the date and difficulty of the puzzle, your score, your stars, how many hints you used, and the time it was submitted. It is stored against a random ID created for your copy of the game.</td>
+                  <td>To tell you what share of players you beat, and to allow one score per player.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Usage statistics</th>
+                  <td>Events such as starting or finishing a level, using a hint, opening the shop or the daily puzzle, and making a purchase. They come with general device information: device model, operating system version, game version, language, and country or region. They are linked to an app-specific ID, not to an advertising ID.</td>
+                  <td>To understand which levels are too hard or too easy, find problems, and decide what to build next.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Crash reports</th>
+                  <td>If the game crashes: what the game was doing at the time, the device model, operating system version, game version, and an ID for the installation.</td>
+                  <td>To find and fix bugs.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Purchases</th>
+                  <td>If you buy something or restore purchases: which product, when, the price and currency, the store country, and the store's transaction identifiers, linked to a random ID. Your payment is taken by Apple or Google. We never receive your card details.</td>
+                  <td>To deliver what you bought and to restore it on another device.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>As with any internet service, the companies that run these services receive your device's IP address when the game connects to them.</p>
 
-    <h2>6. Data Retention and Deletion</h2>
-    <p>Local game data can be deleted at any time by uninstalling the App or clearing the App's data through your device settings. Leaderboard entries stored in Firebase are retained as long as the leaderboard feature is active. To request removal of your leaderboard data, please contact us at the email below.</p>
+          <h2 id="not">4. What we do not collect</h2>
+          <ul>
+            <li>Your name, email address, phone number or postal address</li>
+            <li>Your precise location</li>
+            <li>Your contacts, photos, microphone or camera</li>
+            <li>An advertising ID. The game has no ads and does not track you across other companies' apps or websites.</li>
+          </ul>
 
-    <h2>7. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Any changes will be reflected by updating the "Last updated" date at the top of this page. We encourage you to review this page periodically.</p>
+          <h2 id="notifications">5. Notifications and sharing</h2>
+          <p><strong>Reminders.</strong> If you allow notifications, the game schedules reminders on your device, such as a note that the day's puzzle is ready. They are created and stored on the device itself. We do not send them from a server, and you can turn them off at any time in your device settings.</p>
+          <p><strong>Sharing a result.</strong> When you share a daily result, the game hands a short piece of text to your device's share sheet. Where it goes after that is your choice, and is covered by the privacy policy of the app you share it with.</p>
 
-    <h2>8. Contact Us</h2>
-    <p>If you have any questions or concerns about this Privacy Policy or your data, please contact us at:</p>
-    <p><a href="mailto:games@w3applications.com">games@w3applications.com</a></p>
+          <h2 id="partners">6. Who processes it</h2>
+          <p>We use a small number of companies to run the game. They process the information described above on our behalf, under their own terms and privacy policies.</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Company</th><th>What it does for the game</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Google (Firebase)</th>
+                  <td>Stores daily puzzle scores (Cloud Firestore), creates the random ID they are stored against (Firebase Authentication), and provides usage statistics (Google Analytics for Firebase) and crash reports (Firebase Crashlytics). <a href="https://firebase.google.com/support/privacy" rel="noopener">Privacy and security in Firebase</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">RevenueCat</th>
+                  <td>Checks purchases with the store and keeps track of what each installation owns. <a href="https://www.revenuecat.com/privacy" rel="noopener">RevenueCat privacy policy</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">Apple App Store</th>
+                  <td>Takes payment and delivers purchases on iPhone and iPad. <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple privacy policy</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">Google Play</th>
+                  <td>Takes payment and delivers purchases on Android. <a href="https://policies.google.com/privacy" rel="noopener">Google privacy policy</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>We do not sell your information, and we do not share it for advertising. We may disclose information if the law requires it, or as part of a sale or merger of the business, in which case this policy would continue to apply to it.</p>
+          <p>These companies may process information in the United States and other countries, which may have different data protection rules from the country where you live.</p>
 
-    <p class="footer-note">&copy; 2026 VerdaWorld. All rights reserved.</p>
+          <h2 id="retention">7. Keeping and deleting</h2>
+          <ul>
+            <li><strong>Game progress</strong> stays on your device until you delete the game or clear its data.</li>
+            <li><strong>Daily puzzle scores</strong> are set to be deleted automatically about 35 days after they are submitted.</li>
+            <li><strong>Usage statistics and crash reports</strong> are kept only as long as we need them to improve the game, within the retention periods offered by Firebase.</li>
+            <li><strong>Purchase records</strong> are kept for as long as needed to restore your purchases, and as tax and accounting rules require.</li>
+          </ul>
+          <p>To ask us to delete information linked to your copy of the game, write to <a href="mailto:games@w3applications.com">games@w3applications.com</a>. Because the game has no account, we may need your help to work out which records are yours.</p>
+
+          <h2 id="children">8. Children</h2>
+          <p>VerdaWorld is suitable for a general audience and is not aimed specifically at children. The game does not ask anyone, of any age, for a name, email address or other contact details, and it shows no ads.</p>
+          <p>Purchases need the approval of the store account holder. We recommend that parents use the purchase controls built into their child's device.</p>
+          <p>If you are a parent or guardian and believe your child has given us personal information, please contact us and we will delete it.</p>
+
+          <h2 id="rights">9. Your choices and rights</h2>
+          <ul>
+            <li>You can play every level, including the daily puzzle, with your device offline. Your score is only compared with other players when the game can reach the internet.</li>
+            <li>You can turn notifications on or off in your device settings.</li>
+            <li>You can delete the game at any time, which removes the data stored on your device.</li>
+          </ul>
+          <p>Depending on where you live, you may have the right to ask for a copy of the personal information we hold about you, to have it corrected or deleted, or to object to how it is used. To use any of these rights, contact us at the address below. You may also have the right to complain to your local data protection authority.</p>
+
+          <h2 id="earlier">10. Earlier versions</h2>
+          <p>Versions of VerdaWorld before 3.0 had a public leaderboard. If you took part, your display name and scores were stored for it. Version 3.0 no longer uses the leaderboard. To have an old leaderboard entry removed, contact us.</p>
+
+          <h2 id="website">11. This website</h2>
+          <p>verdaworld.app does not use cookies, analytics or advertising, and does not load anything from other companies' servers. The playable level on the home page runs entirely in your browser and sends nothing anywhere.</p>
+          <p>The website is hosted by GitHub Pages. Like any web host, GitHub receives your IP address and basic request details when you visit, and keeps logs for security. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub privacy statement</a>.</p>
+          <p>Links to the App Store and Google Play take you to Apple's and Google's own sites, which have their own policies.</p>
+
+          <h2 id="changes">12. Changes</h2>
+          <p>We may update this policy, for example when the game changes. When we do, we will change the "Last updated" date at the top of this page. If a change is significant, we will take reasonable steps to tell you, such as a notice in the game or on this website.</p>
+
+          <h2 id="contact">13. Contact</h2>
+          <p>Questions about this policy or about your information:</p>
+          <p>W3 Applications Inc.<br /><a href="mailto:games@w3applications.com">games@w3applications.com</a></p>
+        </article>
+      </div>
+    </main>
   </div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="VerdaWorld home">
+        <img src="assets/img/icon-192.png" alt="" width="28" height="28" loading="lazy" />
+        <span>VerdaWorld</span>
+      </a>
+      <nav aria-label="Footer">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <a href="mailto:games@w3applications.com">Contact</a>
+      </nav>
+      <p class="legal-line">&copy; 2026 W3 Applications Inc. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
